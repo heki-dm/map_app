@@ -21,7 +21,9 @@ class _MapAppState extends State<MapApp> {
 
   late Position _position;
 
+  // 位置情報をGPSから取得
   void _getCurrentLocation() async {
+    // 緯度経度取得
     Position position = await _determinePosition();
     setState(() {
       _position = position;
@@ -64,6 +66,7 @@ class _MapAppState extends State<MapApp> {
           options: MapOptions(
             center: LatLng(34.3405724613467, 134.04341747098732),
             zoom: 15.0,
+            maxZoom: 22.0,
           ),
           nonRotatedChildren: [
             AttributionWidget.defaultWidget(
